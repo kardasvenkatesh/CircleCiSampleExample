@@ -35,6 +35,6 @@ jobs:
 
           - store_artifacts:
               path: app/build/outputs/debug/
-              destination: apks/
+              destination: artifact-file
 
           - run: ./gradlew test
