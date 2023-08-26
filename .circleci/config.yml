@@ -4,6 +4,8 @@ orbs:
 jobs:
   build:
     working_directory: ~/code
+
+
     docker:
       - image: ccistaging/android:api-30
         environment:
@@ -15,6 +17,10 @@ jobs:
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+
+      - run:
+          name: Check Java Installation
+          command: java -version
 
       - run:
           name: Set Java Version
