@@ -19,12 +19,6 @@ jobs:
           command: java -version
 
       - run:
-        name: Set Java Version
-        command: |
-          sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17.0.1/bin/java 3
-          sudo update-alternatives --config java
-
-      - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
       - save_cache:
