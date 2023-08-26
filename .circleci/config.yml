@@ -27,9 +27,11 @@ jobs:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+
       - run:
           name: List APK Directory
-          command: ls -l app/build/outputs/apk
+          command: ls -l app\build\outputs\apk\debug
+
       - run:
           name: Assemble Debug
           command: ./gradlew assembleDebug
