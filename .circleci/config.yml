@@ -7,7 +7,7 @@ jobs:
 
 
     docker:
-      - image: circleci/openjdk:17-jdk
+      - image: ccistaging/android:api-30
         environment:
           JVM_OPTS: -Xmx3200m
     #          _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
@@ -31,7 +31,6 @@ jobs:
       #          command: |
       #            export JAVA_HOME=/path/to/your/java/home
       #            export PATH=$JAVA_HOME/bin:$PATH
-#
 
       - run:
           name: Set Java Version
