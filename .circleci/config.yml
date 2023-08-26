@@ -10,7 +10,7 @@ jobs:
       - image: ccistaging/android:api-30
         environment:
           JVM_OPTS: -Xmx3200m
-#          _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+    #          _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
     steps:
       - checkout
 
@@ -21,6 +21,10 @@ jobs:
       - run:
           name: Check Java Installation
           command: java -version
+
+      - run:
+          name: List Available Java Versions
+          command: sudo update-alternatives --list java
 
       - run:
           name: Set Java Version
