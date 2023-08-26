@@ -15,20 +15,26 @@ jobs:
           - run:
               name: Chmod permissions
               command: sudo chmod +x ./gradlew
+
           - run:
               name: Set Java Version
               command: sudo update-alternatives --set java /usr/local/openjdk-17/bin/java
+
           - run:
               name: Download Dependencies
               command: ./gradlew androidDependencies
+
           - save_cache:
               paths:
                 - ~/.gradle
               key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+
           - run: ./gradlew assembleDebug
             name: List APK Directory
             command: ls -l app/build/outputs/apk
+
           - store_artifacts:
-              path: app/build/outputs/apk/
+              path: app/build/outputs/debug/
               destination: apks/
+
           - run: ./gradlew test
