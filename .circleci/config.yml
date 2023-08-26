@@ -21,6 +21,7 @@ jobs:
           command: |
             update-alternatives --install /usr/bin/java java /usr/local/openjdk-17/bin/java 1
             update-alternatives --set java /usr/local/openjdk-17/bin/java
+
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
