@@ -28,7 +28,13 @@ jobs:
 
       - run:
           name: Set Java Version
-          command: sudo update-alternatives --set java /usr/local/openjdk-17/bin/java
+          command: |
+            export JAVA_HOME=/path/to/your/java/home
+            export PATH=$JAVA_HOME/bin:$PATH
+
+      #      - run:
+      #          name: Set Java Version
+      #          command: sudo update-alternatives --set java /usr/local/openjdk-17/bin/java
 
       - run:
           name: Download Dependencies
