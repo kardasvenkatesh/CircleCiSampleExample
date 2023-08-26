@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Set Java Version
           command: |
-            sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-11.0.1/bin/java 3
+            sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-17.0.1/bin/java 3
             sudo update-alternatives --config java
 
       - run:
