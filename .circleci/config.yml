@@ -22,9 +22,9 @@ jobs:
           name: Check Java Installation
           command: java -version
 
-      - run:
-          name: List Available Java Versions
-          command: sudo update-alternatives --list java
+#      - run:
+#          name: List Available Java Versions
+#          command: sudo update-alternatives --list java
 
       - run:
           name: Set Java Version
