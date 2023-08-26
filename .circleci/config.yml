@@ -19,9 +19,9 @@ jobs:
           name: Check Java Installation
           command: java -version
 
-#      - run:
-#          name: Download Dependencies
-#          command: ./gradlew androidDependencies
+      #      - run:
+      #          name: Download Dependencies
+      #          command: ./gradlew androidDependencies
 
       - save_cache:
           paths:
@@ -30,14 +30,16 @@ jobs:
 
       - run:
           name: List APK Directory
-          command: ls -l app/build/outputs/apk/debug
+          command: ls -l app/build/outputs/apk/
 
       - run:
           name: Assemble Debug
           command: ./gradlew assembleDebug
+
       - store_artifacts:
-          path: app/build/outputs/apk/debug
+          path: app/build/outputs/apk/
           destination: artifact-files
+
       - run:
           name: Run Tests
           command: ./gradlew test
