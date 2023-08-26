@@ -14,13 +14,15 @@ jobs:
       - run:
           name: Chmod permissions
           command: chmod +x ./gradlew
+
       - run:
           name: Check Java Installation
           command: java -version
 
-      - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
+#      - run:
+#          name: Download Dependencies
+#          command: ./gradlew androidDependencies
+
       - save_cache:
           paths:
             - ~/.gradle
