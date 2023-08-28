@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: List APK Directory
-          command: ls -l app/build/outputs/apk/debug
+          command: ls -l
 
       - run:
           name: Assemble Debug
