@@ -34,12 +34,12 @@ android {
         viewBinding true
     }
 
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(17)
-            implementation = JvmImplementation.J9
-        }
-    }
+//    java {
+//        toolchain {
+//            languageVersion = JavaLanguageVersion.of(17)
+//            implementation = JvmImplementation.J9
+//        }
+//    }
 }
 
 dependencies {
