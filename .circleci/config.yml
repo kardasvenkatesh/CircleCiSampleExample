@@ -12,6 +12,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Docker Login
+          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
+      - run:
           name: Chmod permissions
           command: chmod +x ./gradlew
 
