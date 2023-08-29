@@ -1,30 +1,41 @@
 version: 2
+orbs:
+  android: circleci/android@1.0
+
 jobs:
-build-and-deploy:
-  docker:
-    - image: circleci/android:api-29
-  steps:
-    - checkout
-    - run:
-        name: Grant gradle permissions
-        command: sudo chmod +x ./gradlew
+  build:
+    working_directory: ~/code
+    docker:
+      - image: cimg/android-api-30
+        environment:
+          JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run:
+          name: Chmod permissions
+          command: chmod +x ./gradlew
 
-    - run:
-        name: Download Dependencies
-        command: ./gradlew androidDependencies
+      - run:
+          name: Check Java Installation
+          command: java -version
 
-    - run:
-        name: Assemble APK
-        command: ./gradlew assembleRelease
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
 
-    - run:
-        name: Deploy apk to Play Store (alpha track)
-        command: bundler exec fastlane supply --apk app/build/outputs/apk/release/app-release.apk --track alpha
-workflows:
-  version: 2
-  playstore-release:
-    jobs:
-      - test
-      - build-and-deploy:
-          requires:
-            - test
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+
+      - run:
+          name: List APK Directory
+          command: ls -l
+
+      - run:
+          name: Assemble Debug
+          command: ./gradlew assembleDebug
+
+      - store_artifacts:
+          path: app/build/outputs/apk/debug
+          destination: artifact-files
