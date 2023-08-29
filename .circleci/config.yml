@@ -34,7 +34,7 @@ jobs:
 
       - run:
           name: Assemble Debug
-          command: ./gradlew --debug assembleDebug
+          command: ./gradlew --stacktrace assembleDebug
 
       - store_artifacts:
           path: app/build/outputs/apk/debug
