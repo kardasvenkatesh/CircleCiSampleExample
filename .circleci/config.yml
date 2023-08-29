@@ -1,44 +1,36 @@
-version: 2
-orbs:
-  android: circleci/android@1.0
+version: 2.1
 
 jobs:
   build:
-    working_directory: ~/code
+    working_directory: ~/project
     docker:
-      - image: circleci/android:2023.08
-        environment:
-          JVM_OPTS: -Xmx3200m
+      - image: circleci/android:api-30
+
+    environment:
+      JVM_OPTS: -Xmx3200m
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
+
     steps:
       - checkout
-      - run:
-          name: Docker Login
-          command: echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
-      - run:
-          name: Chmod permissions
-          command: chmod +x ./gradlew
 
-      - run:
-          name: Check Java Installation
-          command: java -version
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "build.gradle" }}
+            - v1-dependencies-
 
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
+      - run:
+          name: Build APK
+          command: ./gradlew assembleDebug
+
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-
-      - run:
-          name: List APK Directory
-          command: ls -l
-
-      - run:
-          name: Assemble Debug
-          command: ./gradlew assembleDebug
+          key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - store_artifacts:
-          path: app/build/outputs/apk/debug
-          destination: artifact-files
+          path: app/build/outputs/apk/debug/
+          destination: debug-apks
