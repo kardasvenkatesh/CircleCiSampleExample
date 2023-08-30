@@ -14,9 +14,12 @@ jobs:
       - run:
           name: chmod permissions
           command: chmod +x ./gradlew
+
       - run:
           name: Download Dependencies
+          working_directory: ~/AndroidPracticeAll/CircleCiSampleExample
           command: ./gradlew androidDependencies
+
       - save_cache:
           paths:
             - ~/.gradle
