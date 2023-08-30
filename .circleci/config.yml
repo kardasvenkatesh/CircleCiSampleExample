@@ -17,7 +17,6 @@ jobs:
 
       - run:
           name: Download Dependencies
-          working_directory: ~/AndroidPracticeAll/CircleCiSampleExample
           command: ./gradlew androidDependencies
 
       - save_cache:
