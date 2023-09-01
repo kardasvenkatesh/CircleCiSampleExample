@@ -7,7 +7,7 @@ json_key_path = 'D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json
   supply(
     track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
     package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
-    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',  # Path to your service account JSON key file
+    json_key: 'json_key_path',  # Path to your service account JSON key file
     apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/release/app-release.apk',  # Path to your release APK file
     skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
     skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
