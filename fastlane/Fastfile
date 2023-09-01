@@ -2,7 +2,7 @@ lane :release do
   # Ensure you have Google Play credentials set up
   supply(
     track: 'production',
-    json_key: 'D:\AndroidPracticeAll\jsons\circlefastlane.json',
+    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\circlefastlane.json',
     package_name: 'com.kardas.circlecisampleexample'
   )
   # Build and release your APK
