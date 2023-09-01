@@ -1,7 +1,7 @@
 # Sample Fastfile for uploading APK to Google Play Store using Fastlane
 
 # Define your lane for uploading to Google Play
-lane :release_to_playstore do
+lane :release do
   # Make sure you have the necessary credentials (e.g., service account JSON key)
   # and setup in your fastlane environment.
 
