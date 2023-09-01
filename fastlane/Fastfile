@@ -2,14 +2,14 @@ lane :release do
   # ...
 
   supply(
-    track: 'production',
-    apk: 'D:\AndroidPracticeAll\CircleCiSampleExample\app\release\app-release.apk',
-    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',
-    package_name: 'com.kardas.circlecisampleexample',
-    skip_upload_metadata: true,
-    skip_upload_images: true,
-    skip_upload_screenshots: true,
-    skip_upload_apk: false
+    track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
+    package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
+    json_key: 'D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json',  # Path to your service account JSON key file
+    apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/release/app-release.apk',  # Path to your release APK file
+    skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
+    skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
+    skip_upload_screenshots: true,  # Optional: Set to true if you want to skip uploading screenshots
+    skip_upload_apk: false  # Optional: Set to false to upload the APK file
   )
 
   # ...
