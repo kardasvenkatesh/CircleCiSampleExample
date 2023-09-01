@@ -10,9 +10,9 @@ lane :release do
   File.write(json_key_file, json_key_content)
 
   supply(
-    track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
-    package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
-    json_key: json_key_file  # Path to your service account JSON key file
+    track: 'production',
+    package_name: 'com.kardas.circlecisampleexample',
+    json_key: json_key_file,
     apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/release/app-release.apk',  # Path to your release APK file
     skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
     skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
