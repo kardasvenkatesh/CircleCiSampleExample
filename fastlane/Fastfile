@@ -3,8 +3,8 @@ lane :release do
 
   supply(
     track: 'production',
-    apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/build/outputs/apk/app-debug.apk',
-    json_key: 'D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json',
+    apk: 'D:\AndroidPracticeAll\CircleCiSampleExample\app\release\app-release.apk',
+    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',
     package_name: 'com.kardas.circlecisampleexample',
     skip_upload_metadata: true,
     skip_upload_images: true,
