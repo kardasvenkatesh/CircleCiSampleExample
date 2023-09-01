@@ -1,7 +1,7 @@
 lane :release do
  
 
-json_key_path = '/home/circleci/code/D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json'
+json_key_path = 'D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json'
   UI.message("JSON Key Path: #{json_key_path}")
 
   supply(
