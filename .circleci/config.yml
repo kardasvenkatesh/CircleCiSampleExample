@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/code
@@ -34,3 +34,17 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+
+      - run:
+          name: Install Fastlane
+          command: gem install fastlane
+
+      - run:
+          name: Build and Deploy APK
+          command: fastlane release
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
