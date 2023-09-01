@@ -8,7 +8,7 @@ lane :release do
   # Upload the APK to the Google Play Store
   supply(
     track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
-    apk: 'D:\AndroidPracticeAll\CircleCiSampleExample\app\build\outputs\apk\debug.apk',  # Path to your APK file
+    apk: 'D:\AndroidPracticeAll\CircleCiSampleExample\app\build\outputs\apk\app-debug.apk',  # Path to your APK file
     json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',  # Path to your service account JSON key file
     package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
     skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
