@@ -1,12 +1,22 @@
-lane :release do
-  # Ensure you have Google Play credentials set up
+# Sample Fastfile for uploading APK to Google Play Store using Fastlane
+
+# Define your lane for uploading to Google Play
+lane :release_to_playstore do
+  # Make sure you have the necessary credentials (e.g., service account JSON key)
+  # and setup in your fastlane environment.
+
+  # Upload the APK to the Google Play Store
   supply(
-    track: 'production',
-    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',
-    package_name: 'com.kardas.circlecisampleexample'
+    track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
+    apk: 'D:\AndroidPracticeAll\CircleCiSampleExample\app\build\outputs\apk\debug.apk',  # Path to your APK file
+    json_key: 'D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json',  # Path to your service account JSON key file
+    package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
+    skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
+    skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
+    skip_upload_screenshots: true,  # Optional: Set to true if you want to skip uploading screenshots
+    skip_upload_apk: false  # Optional: Set to false to upload the APK file
   )
-  # Build and release your APK
-  gradle(
-    task: 'assembleRelease'
-  )
+
+  # You can add additional actions or steps here if needed
+
 end
