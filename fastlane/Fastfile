@@ -1,13 +1,18 @@
 lane :release do
  
 
-json_key_path = 'D:/AndroidPracticeAll/CircleCiSampleExample/jsons/json_key.json'
-  UI.message("JSON Key Path: #{json_key_path}")
+ json_key_content = ENV['JSON_KEY']
+
+  # Define a temporary file path to save the JSON key
+  json_key_file = '/tmp/json_key.json'
+
+  # Write the JSON key content to a temporary file
+  File.write(json_key_file, json_key_content)
 
   supply(
     track: 'production',  # Specify the release track (e.g., 'production', 'beta', 'alpha')
     package_name: 'com.kardas.circlecisampleexample',  # Your app's package name
-    json_key: 'json_key_path',  # Path to your service account JSON key file
+    json_key: json_key_file  # Path to your service account JSON key file
     apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/release/app-release.apk',  # Path to your release APK file
     skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
     skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
