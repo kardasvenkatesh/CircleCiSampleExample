@@ -1,5 +1,4 @@
-lane :release 
-do
+lane :release do
  
   supply(
     track: 'production',
