@@ -1,18 +1,10 @@
-lane :release do
+lane :release 
+do
  
-
- json_key_content = ENV['JSON_KEY']
-
-  # Define a temporary file path to save the JSON key
-  json_key_file = '/tmp/json_key.json'
-
-  # Write the JSON key content to a temporary file
-  File.write(json_key_file, json_key_content)
-
   supply(
     track: 'production',
     package_name: 'com.kardas.circlecisampleexample',
-    json_key: json_key_file,
+    json_key: D:\AndroidPracticeAll\CircleCiSampleExample\jsons\json_key.json,
     apk: 'D:/AndroidPracticeAll/CircleCiSampleExample/app/release/app-release.apk',  # Path to your release APK file
     skip_upload_metadata: true,  # Optional: Set to true if you want to skip uploading metadata
     skip_upload_images: true,    # Optional: Set to true if you want to skip uploading images/screenshots
